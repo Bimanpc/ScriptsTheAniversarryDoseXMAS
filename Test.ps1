@@ -1,0 +1,2 @@
+﻿[-TargetName] <string[]>
+[-Ping] [-IPv4] [-IPv6] [-ResolveDestination] [-Source <string>] [-MaxHops <int>] [-Count <int>] [-Delay <int>] [-BufferSize <int>] [-DontFragment] [-TimeoutSeconds <int>] [-Quiet] [<CommonParameters>]
