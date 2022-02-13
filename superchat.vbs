@@ -1,0 +1,1 @@
+variable=inputbox ("Type a Message",,"Message")
