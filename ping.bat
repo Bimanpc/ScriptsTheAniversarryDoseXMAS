@@ -1,0 +1,1 @@
+ping [www.bing.com]
