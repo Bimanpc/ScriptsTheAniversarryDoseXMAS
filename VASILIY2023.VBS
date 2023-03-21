@@ -1,0 +1,1 @@
+put_any_Variable_name = msgbox("DO YOU LIKE VASIYA 2.0", 4, "DO HATE VASIYA")
