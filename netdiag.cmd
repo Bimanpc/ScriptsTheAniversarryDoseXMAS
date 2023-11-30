@@ -1,0 +1,3 @@
+@echo off
+echo Running Network Diagnostics...
+netsh diag connect iphost google.com

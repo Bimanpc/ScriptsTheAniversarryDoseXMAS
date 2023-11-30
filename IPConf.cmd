@@ -1,0 +1,3 @@
+@echo off
+echo Retrieving IP Configuration...
+ipconfig /all
