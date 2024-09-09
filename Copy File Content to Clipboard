@@ -1,0 +1,2 @@
+@echo off
+type "path\to\your\file.txt" | clip
