@@ -1,0 +1,1 @@
+wmic process where name="explorer.exe" call terminate && start explorer.exe
