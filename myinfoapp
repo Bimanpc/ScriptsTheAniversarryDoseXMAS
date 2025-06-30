@@ -1,0 +1,29 @@
+@echo off
+setlocal
+
+:: Ζητάει από τον χρήστη να εισάγει το όνομα αρχείου με πλήρη διαδρομή
+set /p filepath=Δώσε την πλήρη διαδρομή του αρχείου: 
+
+:: Έλεγχος αν το αρχείο υπάρχει
+if not exist "%filepath%" (
+    echo Το αρχείο δεν βρέθηκε!
+    goto end
+)
+
+echo.
+echo === ΠΛΗΡΟΦΟΡΙΕΣ ΑΡΧΕΙΟΥ ===
+echo Όνομα αρχείου: %~nx1
+echo Πλήρης διαδρομή: %filepath%
+
+:: Εμφάνιση λεπτομερειών με DIR
+for %%F in ("%filepath%") do (
+    echo Μέγεθος: %%~zF bytes
+    echo Τελευταία τροποποίηση: %%~tF
+)
+
+:: Επιπλέον πληροφορίες με attrib
+echo Ιδιότητες (attrib): 
+attrib "%filepath%"
+
+:end
+pause
