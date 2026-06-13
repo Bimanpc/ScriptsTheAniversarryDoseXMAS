@@ -1,0 +1,3 @@
+# Example: Query DoH endpoint (educational use only)
+curl -H "accept: application/dns-json" \
+  "https://dns.google.com/query?name=example.com&type=A"
