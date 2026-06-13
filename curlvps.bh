@@ -1,0 +1,22 @@
+# Simple GET request
+curl https://api.example.com/data
+
+# Save output to file
+curl -o output.json https://api.example.com/data
+
+# Download with progress bar
+curl -L -O https://example.com/file.zip
+
+# POST data
+curl -X POST https://api.example.com/submit -d "name=value"
+
+# POST JSON content
+curl -X POST https://api.example.com/api \
+  -H "Content-Type: application/json" \
+  -d '{"key":"value"}'
+
+# Include headers in response
+curl -i https://api.example.com/data
+
+# Verbose output for debugging
+curl -v https://api.example.com/data
