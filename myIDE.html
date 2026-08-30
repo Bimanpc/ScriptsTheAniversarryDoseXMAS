@@ -1,0 +1,42 @@
+// llm_server.cpp
+#include <iostream>
+#include <string>
+#include "httplib.h"        // https://github.com/yhirose/cpp-httplib
+#include "json.hpp"         // https://github.com/nlohmann/json
+
+using json = nlohmann::json;
+
+std::string run_llm(const std::string &prompt) {
+    // TODO: Replace with real LLM integration:
+    // - call local binary (e.g. llama.cpp)
+    // - or HTTP to remote LLM
+    // - or library API
+    return "LLM response to: " + prompt;
+}
+
+int main() {
+    httplib::Server svr;
+
+    svr.Post("/api/llm", [](const httplib::Request &req, httplib::Response &res) {
+        try {
+            auto body = json::parse(req.body);
+            std::string prompt = body.value("prompt", "");
+
+            std::string answer = run_llm(prompt);
+
+            json out;
+            out["response"] = answer;
+
+            res.set_content(out.dump(), "application/json");
+        } catch (const std::exception &e) {
+            json err;
+            err["error"] = std::string("Invalid request: ") + e.what();
+            res.status = 400;
+            res.set_content(err.dump(), "application/json");
+        }
+    });
+
+    std::cout << "LLM server listening on http://127.0.0.1:8080\n";
+    svr.listen("0.0.0.0", 8080);
+    return 0;
+}
